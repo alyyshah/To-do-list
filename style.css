@@ -5,89 +5,151 @@
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  height: 100vh;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Container */
 .container {
   width: 100%;
   padding: 20px;
 }
 
+/* Card */
 .card {
-  background: white;
-  max-width: 380px;
+  background: rgba(255, 255, 255, 0.97);
+  max-width: 400px;
   margin: auto;
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.6s ease-in-out;
 }
 
+/* Heading */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 22px;
+  color: #0f766e;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
+/* Input group */
 .input-group {
   display: flex;
   gap: 10px;
 }
 
+/* Input */
 input {
   flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
   font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+input::placeholder {
+  color: #94a3b8;
 }
 
 input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
 }
 
+/* Button */
 button {
-  background: #667eea;
+  background: linear-gradient(135deg, #fb7185, #f43f5e);
   color: white;
   border: none;
-  border-radius: 10px;
-  width: 45px;
-  font-size: 22px;
+  border-radius: 14px;
+  width: 50px;
+  font-size: 24px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 button:hover {
-  background: #5a67d8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(244, 63, 94, 0.45);
 }
 
+button:active {
+  transform: scale(0.94);
+}
+
+/* Task list */
 ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 22px;
+  max-height: 280px;
+  overflow-y: auto;
 }
 
-li {
-  background: #f5f6fa;
-  padding: 12px;
-  margin-bottom: 10px;
+/* Scrollbar */
+ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #5eead4;
   border-radius: 10px;
+}
+
+/* Task item */
+li {
+  background: #f0fdfa;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.25s ease;
+  font-size: 14.5px;
+  color: #134e4a;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
 }
 
 li:hover {
-  background: #e2e6ff;
-  transform: scale(1.02);
+  background: #ccfbf1;
+  transform: translateX(5px);
 }
 
+/* Hint */
 .hint {
   text-align: center;
   font-size: 12px;
-  color: #777;
-  margin-top: 10px;
+  color: #64748b;
+  margin-top: 14px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+  .card {
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
 }
